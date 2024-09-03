@@ -5,29 +5,43 @@ import { ContextProvider } from '../contexts/ContextProvider';
 import { AppBar } from '../components/AppBar';
 import { ContentContainer } from '../components/ContentContainer';
 import { Footer } from '../components/Footer';
-import Notifications from '../components/Notification'
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+import { useState } from 'react';
 require('@solana/wallet-adapter-react-ui/styles.css');
 require('../styles/globals.css');
 
 const App: FC<AppProps> = ({ Component, pageProps }) => {
-    return (
-        <>
-          <Head>
-            <title>Solana Scaffold Lite</title>
-          </Head>
+  const [showSidebar, setShowSidebar] = useState(false);
 
-          <ContextProvider>
-            <div className="flex flex-col h-screen">
-              <Notifications />
-              <AppBar/>
-              <ContentContainer>
-                <Component {...pageProps} />
-                <Footer/>
-              </ContentContainer>
-            </div>
-          </ContextProvider>
-        </>
-    );
+  return (
+    <>
+      <Head>
+        <title>FoodSply</title>
+      </Head>
+
+      <ContextProvider>
+        <div className="flex flex-col h-screen">
+          <ToastContainer
+            position="top-right"
+            autoClose={3000}
+            hideProgressBar={false}
+            newestOnTop={false}
+            closeOnClick
+            rtl={false}
+            pauseOnFocusLoss
+            draggable
+            pauseOnHover
+          />
+          <AppBar setShowSidebar={setShowSidebar} showSidebar={showSidebar}/>
+          <ContentContainer setShowSidebar={setShowSidebar} showSidebar={showSidebar}>
+            <Component {...pageProps} />
+            <Footer />
+          </ContentContainer>
+        </div>
+      </ContextProvider>
+    </>
+  );
 };
 
 export default App;
