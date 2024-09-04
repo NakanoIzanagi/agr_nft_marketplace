@@ -34,7 +34,7 @@ export const HomeView: FC = () => {
 
   // React-spring animation
   const terminalProps = useSpring({
-    display: isVisible ? 'block' : 'none',
+    display:isVisible ? 'block' : 'none',
     opacity: isVisible ? 1 : 0,
     // transform: isVisible ? 'translateX(0%)' : 'translateX(100%)',
   });
@@ -79,7 +79,7 @@ export const HomeView: FC = () => {
   useEffect(() => {
     if (wallet.publicKey) {
       getUserSOLBalance(wallet.publicKey, connection);
-      // fetchNftGallery(); // Fetch NFTs after wallet is connected
+        // fetchNftGallery(); // Fetch NFTs after wallet is connected
     }
   }, [wallet.publicKey, connection, getUserSOLBalance]);
 
@@ -138,18 +138,18 @@ export const HomeView: FC = () => {
         className="absolute z-50 p-4 ml-2 bg-white rounded-lg shadow-lg right-5 top-30">
         <Script src="https://terminal.jup.ag/main-v1.js" strategy="lazyOnload" />
       </animated.div>
-      {/* <div className="flex flex-col mt-2">
-        <RequestAirdrop />
-        <h4 className="my-2 text-2xl md:w-full text-slate-300">
-          {wallet &&
-            <div className="flex flex-row justify-center">
-              <div>{(balance || 0).toLocaleString()}</div>
-              <div className="ml-2 text-slate-600">SOL</div>
-            </div>
-          }
-        </h4>
-      </div> */}
-      <div className="flex flex-col items-center mt-10 text-white sm:mt-20 section-margin-x">
+ {/* <div className="flex flex-col mt-2">
+          <RequestAirdrop />
+          <h4 className="my-2 text-2xl md:w-full text-slate-300">
+            {wallet &&
+              <div className="flex flex-row justify-center">
+                <div>{(balance || 0).toLocaleString()}</div>
+                <div className="ml-2 text-slate-600">SOL</div>
+              </div>
+            }
+               </h4>
+        </div> */}
+         <div className="flex flex-col items-center mt-10 text-white sm:mt-20 section-margin-x">
         <div className="w-full sm:w-[650px] text-center">
           <div className="css-1c2fuzs">
             <p className="pb-3 text-sm sm:pb-5 sm:text-xl">

@@ -8,14 +8,24 @@ import { Footer } from '../components/Footer';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { useState } from 'react';
+import CustomLayout from 'components/customLayout';
 require('@solana/wallet-adapter-react-ui/styles.css');
 require('../styles/globals.css');
 
-const App: FC<AppProps> = ({ Component, pageProps }) => {
+const App: FC<AppProps> = ({ Component, pageProps, router }) => {
   const [showSidebar, setShowSidebar] = useState(false);
 
-  return (
-    <>
+  const getLayout = () => {
+    // Add routing logic here to determine which layout to use
+    if (router.pathname === '/landing') {
+      return (
+        <CustomLayout>
+          <Component {...pageProps} />
+        </CustomLayout>
+      );
+    }
+    // Default layout for other pages
+    return (<>
       <Head>
         <title>FoodSply</title>
       </Head>
@@ -41,7 +51,10 @@ const App: FC<AppProps> = ({ Component, pageProps }) => {
         </div>
       </ContextProvider>
     </>
-  );
+    );
+  };
+
+  return getLayout();
 };
 
 export default App;

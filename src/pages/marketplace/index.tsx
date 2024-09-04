@@ -1,11 +1,12 @@
 import type { NextPage } from "next";
-import { NftView } from "../views";
+import { NftView } from "../../views";
 import HeadContent from "components/HeadContent";
 
 const Whitepaper: NextPage = (props) => {
     return (
-        <div>
+        <div className="w-full h-screen bg-black">
             <HeadContent />
+            ss
             <NftView />
         </div>
     );

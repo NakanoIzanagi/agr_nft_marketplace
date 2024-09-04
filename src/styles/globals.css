@@ -23,7 +23,9 @@ a {
 * {
   box-sizing: border-box;
 }
-
+.wallet-adapter-button{
+  padding: 0px 11px;
+}
 /* example: override wallet button style */
 .wallet-adapter-button:not([disabled]):hover {
   background-color: #707070;
@@ -51,7 +53,6 @@ a {
 /* styles/globals.css or ExampleComponent.module.css */
 ::-webkit-scrollbar {
   width: 8px; /* Adjust the width of the scrollbar */
-  display: none;
 }
 
 ::-webkit-scrollbar-track {
