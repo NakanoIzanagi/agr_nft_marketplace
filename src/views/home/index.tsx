@@ -79,7 +79,7 @@ export const HomeView: FC = () => {
   useEffect(() => {
     if (wallet.publicKey) {
       getUserSOLBalance(wallet.publicKey, connection);
-        // fetchNftGallery(); // Fetch NFTs after wallet is connected
+        fetchNftGallery(); // Fetch NFTs after wallet is connected
     }
   }, [wallet.publicKey, connection, getUserSOLBalance]);
 
