@@ -1,11 +1,10 @@
 // pages/api/fetchListings.ts
 import { NextApiRequest, NextApiResponse } from 'next';
-const { Connection, PublicKey,clusterApiUrl } = require('@solana/web3.js');
+const { Connection, PublicKey,clusterApiUrl,Keypair } = require('@solana/web3.js');
 import { Program } from '@project-serum/anchor';
 import idl from '../../../public/idl.json';
 import { AnchorProvider, web3 } from '@project-serum/anchor';
 import { useWallet, useConnection } from '@solana/wallet-adapter-react';
-
 type NftListing = {
   token_id: string;
   price: number;
@@ -21,10 +20,10 @@ export default async function handler(
 ) {
   try {
     // Connection to Solana Devnet
-    const wallet = useWallet();
-    
+    // const wallet = useWallet();
+    const dummyWallet = Keypair.generate();
     let connection = new Connection(clusterApiUrl("devnet"));
-    const provider = new AnchorProvider(connection, wallet, {});
+    const provider = new AnchorProvider(connection, dummyWallet, {});
 
 
     // Replace with your program ID

@@ -31,10 +31,9 @@ const nftDetail = {
 interface MintNFTProps {
   title: string;
   imgUrl: string;
-  description: string;
 }
 
-const NFT1 = ({ title, imgUrl,description }: MintNFTProps) => {
+const NFT1 = ({ title, imgUrl }: MintNFTProps) => {
   return (
     <div className="p-6 w-40 transition-transform duration-300 ease-in-out transform bg-[#192c1a] rounded-lg shadow-lg hover:scale-105 hover:shadow-2xl">
       <div className="relative">
@@ -48,7 +47,7 @@ const NFT1 = ({ title, imgUrl,description }: MintNFTProps) => {
         <div className="absolute top-0 left-0 right-0 w-full h-full rounded-t-lg bg-gradient-to-t from-gray-900 to-transparent opacity-60" />
       </div>
       <h3 className="mt-4 text-2xl font-bold text-white">{title}</h3>
-      <p className="mt-2 text-gray-400">{description}</p>
+      <p className="mt-2 text-gray-400">{nftDetail.description}</p>
       <div className='flex justify-end gap-3 pt-3'>
         <button>list</button>
       </div>
